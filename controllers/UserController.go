@@ -1,13 +1,9 @@
 package controllers
 
-import (
-	"github.com/chinyart/nedum-model/models"
-)
+import "github.com/chinyart/nedum-model/models"
 
 //DisplayPerson to display person details
-func DisplayPerson() (string, error) {
-	var show = models.PersonBio{
-		Name: "chidi",
-	}
-	return show.Name, nil
+func DisplayPerson(personBio models.PersonBio) (string, error) {
+	personBio.Name = "chidi"
+	return personBio.Name, nil
 }
