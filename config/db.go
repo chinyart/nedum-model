@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"log"
 
-    mongo "go.mongodb.org/mongo-driver/mongo"
-    options "go.mongodb.org/mongo-driver/mongo/options"
+	mongo "go.mongodb.org/mongo-driver/mongo"
+	options "go.mongodb.org/mongo-driver/mongo/options"
 )
 
 //DBConnect to connect the database
-func DBConnect() {
+func DBConnect() *mongo.Client {
 	// Set client options
 	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
 
@@ -28,5 +28,6 @@ func DBConnect() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Connected to MongoDB!" + client)
+	fmt.Println("Connected to MongoDB!")
+	return client
 }
