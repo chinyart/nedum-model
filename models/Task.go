@@ -1,17 +1,14 @@
 package models
 
 import (
-	"fmt"
-
 	db "github.com/chinyart/nedum-model/config"
 	u "github.com/chinyart/nedum-model/utils"
 	"go.mongodb.org/mongo-driver/mongo/primitive"
-	"go.mongodb.org/mongo-driver/mongo/bson"
 )
 
 //Task to manage the task
 type Task struct {
-	ID     primitive.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
+	ID     primitive.ObjectID `json: "_id,omitempty" bson:"_id,omitempty"`
 	Title  string             `json:"title,omitempty" bson:"title,omitempty"`
 	Body   string             `json:"body,omitempty" bson:"body,omitempty"`
 	Date   string             `json:"date,omitempty" bson:"date,omitempty"`
@@ -62,10 +59,10 @@ func (task *Task) Create() map[string]interface{} {
 //GetTask to get one task
 func GetTask(id uint) *Task {
 	task := &Task{}
-	err := GetDB().Table("tasks").Where("id = ?", id).First(task).Error
-	if err != nil {
-		return nil
-	}
+	// err := GetDB().Table("tasks").Where("id = ?", id).First(task).Error
+	// if err != nil {
+	// 	return nil
+	// }
 	return task
 }
 
@@ -73,11 +70,11 @@ func GetTask(id uint) *Task {
 func GetTasks(user uint) []*Task {
 
 	task := make([]*Task, 0)
-	err := GetDB().Table("tasks").Where("user_id = ?", user).Find(&task).Error
-	if err != nil {
-		fmt.Println(err)
-		return nil
-	}
+	// err := GetDB().Table("tasks").Where("user_id = ?", user).Find(&task).Error
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	return nil
+	// }
 
 	return task
 }

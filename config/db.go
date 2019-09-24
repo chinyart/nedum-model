@@ -6,7 +6,7 @@ import (
 	"log"
 
     mongo "go.mongodb.org/mongo-driver/mongo"
-    options "go.mongodb.org/mongo-driver/mongo/option"
+    options "go.mongodb.org/mongo-driver/mongo/options"
 )
 
 //DBConnect to connect the database
